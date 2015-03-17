@@ -1,0 +1,19 @@
+<%doc>
+	Author: Group 2-15
+	Version: 1.0
+	Updated: 1/23/15
+
+	This is the main login page. All users that choose to login will be directed here. 
+</%doc>
+
+<%inherit file="/base_app/templates/base_ajax.htm" />
+
+<%block name="extra_links">
+    <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/styles/login.css">
+</%block>
+
+<%block name="content">
+
+    ${ form.as_login() }
+
+</%block>

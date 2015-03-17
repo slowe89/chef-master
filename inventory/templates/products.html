@@ -1,0 +1,47 @@
+
+<%inherit file="/base_app/templates/base.htm" />
+
+<%block name="tab_title">
+  View Products
+</%block>
+
+<%block name="paper_elements_import">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-input/paper-input.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-button/paper-button.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-checkbox/paper-checkbox.html">
+</%block>
+
+<%block name="extra_links">
+	<link rel="stylesheet" type="text/css" href="${ STATIC_URL }base_admin/styles/View.css">
+</%block>
+
+## PAGE TITLE ##
+<%block name="page_title">
+    <div class="row">
+
+        ## PAGE TITLE ##
+        <div class="col-md-8">
+            <h1>Products</h1>
+        </div>
+        <div class="text-right">
+            <br>
+            <a><button class="btn btn-warning" id="search">Find a Product</button></a>
+        </div>
+        ## END PAGE TITLE ##
+
+    </div>
+</%block>
+
+<%block name="content">
+
+    %for inv in inventory:
+        <div class="item_container text-center">
+            <img src="${ STATIC_URL }inventory/media/${ inv.id }.jpg" />
+            <div>${ inv.name }</div>
+            <div class="text-right">
+                <a href="/inventory/products.details/${ inv.id }"><button class="btn btn-xs btn-success">View Details</button></a>
+            </div>
+        </div>
+    %endfor
+
+</%block>

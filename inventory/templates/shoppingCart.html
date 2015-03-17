@@ -1,0 +1,79 @@
+<%doc>
+	Author: Group 2-15
+	Version: 1.0
+	Updated: 1/23/15
+
+	This is the main login page. All users that choose to login will be directed here.
+</%doc>
+
+<%inherit file="/base_app/templates/base_ajax.htm" />
+
+<%block name="extra_links">
+    <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/styles/login.css">
+</%block>
+
+<%block name="content">
+
+    <div>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+
+                    <th>
+                        Item Name
+                    </th>
+
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Total Price
+                    </th>
+                    <th>
+                        Remove
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+        <% totalPrice = 0 %>
+        %for item in items:
+            <tr>
+                <td>
+                    <span>${ item.name }</span>
+                </td>
+                <td>
+                    <span>${ items[item] }</span>
+                </td>
+                <td>
+                    <span>$${ item.price * items[item] }</span>
+                </td>
+                <td>
+                    <div align="center">
+                        <button class="btn btn-danger" data-id="${ item.id }" id="delete_item">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <% totalPrice += (item.price * items[item]) %>
+        %endfor
+            <tr>
+                <td>
+                    <b>Total</b>
+                </td>
+                <td></td>
+                <td>
+                    <b>$${ totalPrice }</b>
+                </td>
+            </tr>
+            </tbody>
+
+         </table>
+        <div align="right">
+            <a href="/inventory/shopping_cart.checkOut/">
+                <button class="btn btn-warning" id="btn_purchase">Check Out</button>
+            </a>
+        </div>
+    </div>
+
+</%block>

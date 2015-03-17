@@ -1,0 +1,43 @@
+
+<%inherit file="/base_app/templates/base.htm" />
+
+<%block name="tab_title">
+  Edit Item
+</%block>
+
+<%block name="paper_elements_import">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-input/paper-input.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-button/paper-button.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-radio-group/paper-radio-group.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-radio-button/paper-radio-button.html">
+</%block>
+
+<%block name="extra_links">
+	<link rel="stylesheet" type="text/css" href="${ STATIC_URL }base_admin/styles/Edit.css">
+</%block>
+
+<%block name="content">
+
+	<div class="page_title">
+		<h1>Checkout</h1>
+	</div>
+
+	## ROW ##
+	<div class="row">
+
+         ${ form }
+
+	</div>
+    <div>
+        <a href="/inventory/shopping_cart.payment"><button class="btn btn-success">Continue</button></a>
+    </div>
+
+	## END ROW ##
+
+	## SPACER DIVS ##
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	## END SPACER DIVS ##
+
+</%block>

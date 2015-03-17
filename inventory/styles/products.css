@@ -1,0 +1,12 @@
+.item_container {
+    display: inline-block;
+    margin: 10px;
+    padding: 4px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+}
+
+.item_container > img {
+    max-width:350px;
+    max-height:350px;
+}

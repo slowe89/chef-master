@@ -1,0 +1,136 @@
+
+<%inherit file="/base_admin/templates/base.htm" />
+
+<%block name="tab_title">
+  Overdue Items Report
+</%block>
+
+<%block name="paper_elements_import">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-input/paper-input.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-button/paper-button.html">
+	<link rel="import" href="${ STATIC_URL }base_app/styles/bower_components/paper-checkbox/paper-checkbox.html">
+</%block>
+
+<%block name="extra_links">
+	<link rel="stylesheet" type="text/css" href="${ STATIC_URL }base_admin/styles/View.css">
+</%block>
+
+<%block name="content">
+	
+	## PAGE TITLE ##
+	<%block name="page_title">
+		<div class="row">
+			
+			## PAGE TITLE ##
+			<div class="col-md-8">
+				<h1>Overdue Items</h1>
+			</div>
+			## END PAGE TITLE ##
+
+			## CREATE BUTTON ##
+			<div class="col-md-4">
+				
+			</div>
+			## END CREATE BUTTON ##
+
+		</div>
+	</%block>
+	## END PAGE TITLE ##
+
+	## ROW ##
+	<div class="row">
+		
+		## LEFT COLUMN ##
+		<div class="col-md-6">
+
+			## BATCH OPTIONS ##
+			<h3>Batch Options</h3>
+			
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropwdown" aria-expanded="true">
+					Batch Options
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation">Delete</li>
+				</ul>
+			</div>
+
+			<paper-button class="success_button run_batch" raised>Submit</paper-button>
+
+			## END BATCH OPTIONS ##
+
+		</div>
+		## END LEFT COLUMN ##
+
+		## RIGHT COLUMN ##
+		<div class="col-md-6">
+			
+			## FILTER OPTIONS ##
+			<h3>Filter Options</h3>
+			
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropwdown" aria-expanded="true">
+					Filter Options
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation">Delete</li>
+				</ul>
+			</div>
+
+			<paper-input-decorator class="short" floatingLabel label="Criteria">
+				<input is="core-input"></input>
+			</paper-input-decorator>
+
+			<paper-button class="success_button apply_filter" raised>Submit</paper-button>
+			## END FILTER OPTIONS ##
+
+		</div>
+		## END RIGHT COLUMN ##
+
+	</div>
+	## END ROW ##
+
+	## SEPARATOR ##
+	<hr>
+	## END SEPARATOR ##
+
+	## TABLE TITLE ##
+	<h3 class="table_title">The following items are past due:</h3>
+	## END TABLE TITLE ##
+
+
+	## TABLE OF NON WARDROBE ITEMS ##
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>
+					Name
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			%for item in items:
+				<tr>
+					<td>
+						${ item.item.name }
+					</td>
+				</tr>
+			%endfor
+		</tbody>
+	</table>	
+	## END TABLE OF NON WARDROBE ITEMS ##
+
+	## SEPARATOR ##
+	<hr>
+	## END SEPARATOR ##
+
+
+	## SPACER DIVS ##
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	## END SPACER DIVS ##
+
+</%block>

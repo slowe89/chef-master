@@ -1,0 +1,28 @@
+<%doc>
+	Author: Group 2-15
+	Version: 1.0
+	Updated: 1/23/15
+
+	This is the main login page. All users that choose to login will be directed here. 
+</%doc>
+
+<%inherit file="/base_app/templates/base.htm" />
+
+<%block name="extra_links">
+    <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/styles/login.css">
+</%block>
+
+<%block name="content">
+
+ <h3>Please Sign In</h3>
+    <br>
+    You will need to log in to perform the requested action.
+    <br>
+    <br>
+    <br>
+    <a href="/inventory/shopping_cart.checkOut"><button class="btn btn-success">Checkout</button></a>
+    <br>
+    <br>
+    <br>
+
+</%block>
